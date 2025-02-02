@@ -1,0 +1,72 @@
+/* Colores principales */
+.text-gold {
+  color: #FFD700 !important; /* Dorado */
+}
+.border-gold {
+  border-color: #FFD700 !important;
+}
+.btn-gold {
+  background-color: #FFD700;
+  color: #000;
+  border: 1px solid #FFD700;
+}
+.btn-gold:hover {
+  background-color: #FFC300;
+  border-color: #FFC300;
+}
+
+/* Hero con patrón */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 350px; /* Ajusta la altura a gusto */
+  background: url("./wave-pattern.png") no-repeat center center / cover;
+}
+.hero-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.3); 
+  z-index: 1;
+}
+.z-top {
+  z-index: 2;
+}
+
+/* Inputs y selects oscuros con borde dorado */
+.form-control.bg-dark,
+.form-select.bg-dark {
+  color: #fff;
+  background-color: #2a2a2a;
+  border: 1px solid #FFD700;
+}
+.form-control:focus,
+.form-select:focus {
+  box-shadow: 0 0 4px rgba(255,215,0,0.7);
+  border-color: #FFD700 !important;
+}
+
+/* Tabla hover */
+.table-dark.table-hover tbody tr:hover {
+  background-color: #2e2e2e;
+}
+
+/* Sombra en las cards */
+.card.shadow {
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+}
+
+/* CLASE para el contenido que queremos separar del footer */
+.content-wrapper {
+  /* Añade un pequeño margen o padding extra si quieres aún más espacio */
+  margin-bottom: 1rem; /* margen inferior */
+}
+
+/* FOOTER más pequeño */
+.foot-smaller {
+  padding: 0.5rem 0; /* Reduce padding vertical */
+}
+
+/* OPCIONAL: Si deseas asegurar que el footer permanezca al final,
+   podrías usar flexbox en el body. Pero con un margin/padding 
+   extra en main suele bastar. */
