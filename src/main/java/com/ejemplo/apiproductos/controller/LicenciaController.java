@@ -39,12 +39,8 @@ public class LicenciaController {
     
     @PostMapping
     public Licencia guardarLicencia(@RequestBody Licencia licencia) {
-        // El JSON vendrá con "rutaImagen" si el admin lo agregó
         return licenciaService.guardarLicencia(licencia);
     }
-
-
-    
     
 }
 

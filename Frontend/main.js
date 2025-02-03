@@ -1,11 +1,10 @@
-// URL base de tu API REST en Spring Boot
+
 const BASE_URL = "http://localhost:8080/api/licencias";
 
-// 1. Al cargar la página, listamos las licencias
 document.addEventListener("DOMContentLoaded", () => {
   listarLicencias();
   
-  // Manejar el envío del formulario para crear nueva licencia
+  // Form para crear nueva licencia
   const formNuevaLicencia = document.getElementById("form-nueva-licencia");
   formNuevaLicencia.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -13,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// 2. Función para listar licencias
+// Func para listar licencias
 async function listarLicencias() {
   try {
     const response = await fetch(BASE_URL); // GET /api/licencias
@@ -28,7 +27,7 @@ async function listarLicencias() {
   }
 }
 
-// 3. Mostrar licencias en la tabla
+// Mostrar lista
 function renderizarLicencias(licencias) {
   const tbody = document.querySelector("#tabla-licencias tbody");
   tbody.innerHTML = "";
@@ -39,7 +38,7 @@ function renderizarLicencias(licencias) {
     // Check si lic.rutaImagen es null o vacío
     let imgSrc = lic.rutaImagen && lic.rutaImagen.trim() !== "" 
       ? lic.rutaImagen 
-      : "img/no-image.png"; // o puede ser una URL placeholder
+      : "img/no-image.png"; 
 
     fila.innerHTML = `
       <td>${lic.id}</td>
@@ -63,7 +62,7 @@ function renderizarLicencias(licencias) {
   });
 }
 
-// 4. Crear nueva licencia
+// Crear Lic
 async function crearLicencia() {
   const nombreSoftware = document.getElementById("nombreSoftware").value;
   const descripcion = document.getElementById("descripcion").value;
@@ -75,7 +74,6 @@ async function crearLicencia() {
     descripcion,
     precio,
     stock
-    // claveActivacion se generará tras "comprar", no ahora
   };
 
   try {
@@ -90,7 +88,6 @@ async function crearLicencia() {
     if (!response.ok) {
       throw new Error("Error al crear la licencia");
     }
-    // Licencia creada con éxito, volvemos a listar
     alert("Licencia creada correctamente.");
     limpiarFormulario();
     listarLicencias();
@@ -107,7 +104,7 @@ function limpiarFormulario() {
   document.getElementById("stock").value = "";
 }
 
-// 5. Comprar licencia (generar clave)
+// Comprar lic func
 async function comprarLicencia(id) {
   if (!confirm("¿Deseas comprar esta licencia?")) return;
 
@@ -120,14 +117,14 @@ async function comprarLicencia(id) {
       throw new Error("Error al comprar la licencia");
     }
     alert("Compra realizada con éxito. Se ha generado la clave de activación.");
-    listarLicencias(); // refrescar la tabla
+    listarLicencias();a
   } catch (error) {
     console.error(error);
     alert("Ocurrió un error al comprar la licencia.");
   }
 }
 
-// 6. Eliminar licencia
+// Func DELETE Lic
 async function eliminarLicencia(id) {
   if (!confirm("¿Deseas eliminar esta licencia?")) return;
 

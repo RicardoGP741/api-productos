@@ -49,7 +49,7 @@ public class LicenciaServiceImpl implements LicenciaService {
         Licencia licencia = licenciaRepository.findById(id)
             .orElseThrow(() -> new RuntimeException("Licencia no encontrada"));
 
-        // Generar una clave de activación (ejemplo sencillo)
+        // Generador Key
         String claveGenerada = UUID.randomUUID().toString();
         licencia.setClaveActivacion(claveGenerada);
 

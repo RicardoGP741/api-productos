@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "licencias")  // renombra la tabla en la BD
+@Table(name = "licencias") 
 public class Licencia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,12 +27,9 @@ public class Licencia {
     @Column(nullable = true)
     private String rutaImagen;
 
-    // Si manejas un límite de licencias disponibles, mantén "stock".
-    // O renómbralo a algo como "cantidadDisponible" si aplica.
     @Column(nullable = false)
     private Integer stock;
 
-    // Nuevo campo para la clave de activación
-    @Column(nullable = true) // se puede generar tras la compra
+    @Column(nullable = true) 
     private String claveActivacion;
 }
